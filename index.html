@@ -3,10 +3,101 @@
     <head>
         <meta charset="utf-8">
         <title>Crypto-Touille</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg fixed-top" role="navigation">
+            <!-- Skip Link -->
+            <a id="skip-link" href="#content-center">Jump to Main Content</a>
+            <div id="navbar-container">
+              <ul class="navbar-nav">
+                <li class="navbar-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="navbar-item">
+                  <a class="nav-link" href="#">Moments</a>
+                </li>
+                <li class="navbar-item">
+                  <a class="nav-link" href="#">Notifications</a>
+                </li>
+                <li class="navbar-item">
+                  <a class="nav-link" href="#">Messages</a>
+                </li>
+              </ul>
+              <img id="twitter-logo" src="images/twitter-logo.png" alt="twitter logo" height="35" width="35">
+              <button type="button" class="btn" id="tweet-button">
+                Tweet
+              </button>
+            </div>
+          </nav>
+          <div id="wrapper">
+            <div id="content-left">
+              <div id="cover-box"><img class="cover-pic" src="images/ratatouille-banner.png" alt="ratatouille banner"></div>
+              <div id="pfp-box"><img class="profile-pic" src="images/ratatouille.jpg" alt="remy pfp">
+                <li><strong> <u> Remy </u> </strong></li>
+                <li style="color: gray;">@remy</li>
+              </div>
+              <div id="status-box">                                                                          
+                <div id="left-box">
+                  <li><strong style="color: lightslategray;">  Tweets  </strong></li>
+                </p>
+                  <li style="color: rgb(29, 155, 240);"><strong>5049</strong></li>
+                </div>
+                <div id="mid-box">
+                  <li><strong style="color: lightslategray;">  Following  </strong></li>
+                </p>
+                  <li style="color: rgb(29, 155, 240);"><strong>324</strong></li>
+                </div>
+                <div id="right-box">
+                  <li><strong style="color: lightslategray;">  Followers  </strong></li>
+                </p>
+                  <li style="color: rgb(29, 155, 240);"><strong>809</strong></li>
+                </div>
+              </div> 
+            </div>
+            <div id="content-center" role="main">
+                <input id="searchBar" type="search" placeholder="Search tweets">
+                <div id="checkBox">
+                    <input type="checkbox" onclick="auto_refresh()">
+                    <label for="checkBox">Pause Feed</label>
+                  </div>
+            </div>
+            <div id="content-right">
+              <div id="who-to-follow"><b>Who to Follow</b></div>
+              <div class="profile-to-follow">
+                <img class="tweet-profile-pic" src="images/ratatouille.jpg" alt="remy pfp">
+                  <div class="tweet-content">
+                    <div class="tweet-handle">
+                      <span><b>Remy</b></span>
+                      <span class="side-handle">@remy</span>
+                    </div>
+                    <button type="button" class="btn follow-button">
+                      Follow
+                    </button>
+                  </div>
+              </div>
+              <div class="profile-to-follow">
+                <img class="tweet-profile-pic" src="images/linguini.png" alt="linguini pfp">
+                  <div class="tweet-content">
+                    <div class="tweet-handle">
+                      <span><b>Linguini</b></span>
+                      <span class="side-handle">@linguini</span>
+                    </div>
+                    <button type="button" class="btn follow-button">
+                      Follow
+                    </button>
+                  </div>
+              </div>
+            </div>
+          </div>
 
         <script src="main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     </body>
 </html>
