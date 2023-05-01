@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    padding: 15px
+    padding: 15px;
   }
   
   #content-left {
@@ -236,4 +236,16 @@ body {
 #searchBar {
     justify-content: left;
     width: 80%;
+}
+
+.tweet-date {
+    color: grey;
+    text-align: right;
+    font-style: italic;
+    font-size: small;
+}
+
+#tweets-container {
+  height: 650px;
+  overflow-y: auto;
 }
