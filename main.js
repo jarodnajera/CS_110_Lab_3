@@ -1,10 +1,11 @@
 const url = 'http://50.21.190.71/get_tweets';
 var tweets = [];
+/*
 var timer = setInterval(() => {
     scrape_tweets();
     display_tweets();
 }, 5000);
-
+*/
 function scrape_tweets() {
     console.log('enter scrape');
     fetch(url)
@@ -18,6 +19,12 @@ function scrape_tweets() {
         console.log(err);
     });
 }
+
+document.addEventListener("keyup", function(event) { //listens for Enter key when searching, filters tweets
+    if (event.key === 'Enter') {
+        display_tweets();
+    }
+})
 
 function display_tweets() {
     console.log('enter display');
@@ -100,7 +107,7 @@ function auto_refresh() {
             console.log('not checked');
             scrape_tweets();
             display_tweets();
-        }, 8000);
+        }, 5000);
     }
     else {
         console.log('checked');
@@ -108,19 +115,6 @@ function auto_refresh() {
     }
 }
 
+auto_refresh();
+
 document.getElementById("pause").addEventListener('click', auto_refresh);
-
-let searchString = "";
-
-const handleSearch = event => {
-    searchString = event.target.value.trim().toLowerCase(); 
-    // you may want to update the displayed HTML here too
-}
-
-document.getElementById("searchBar").addEventListener("input", handleSearch); //searchbar takes text when clicked
-var searchTerms = document.querySelector("searchBar").value;
-node.addEventListener("keyup", ({key}) => { //searchbar stores text for searching and clears search bar for next search
-    if (key === "Enter") {
-        console.log(document.querySelector("#searchBar").value);
-    }
-})
