@@ -1,13 +1,15 @@
 const url = 'http://50.21.190.71/get_tweets';
 var tweets = [];
-/*
-var timer = setInterval(() => {
-    scrape_tweets();
-    display_tweets();
-}, 5000);
-*/
+
+/**
+ * Fetches tweets from server and pushes them to
+ * tweets array. Also prevents pushing duplicate
+ * tweets.
+ * @param None, updates var tweets
+ * @returns None, updates var tweets
+ */
 function scrape_tweets() {
-    console.log('enter scrape');
+    //console.log('enter scrape');
     fetch(url)
         .then(res => res.json()).then(data => {
             data.forEach((tweet) => {
@@ -20,14 +22,15 @@ function scrape_tweets() {
     });
 }
 
-document.addEventListener("keyup", function(event) { //listens for Enter key when searching, filters tweets
-    if (event.key === 'Enter') {
-        display_tweets();
-    }
-})
-
+/**
+ * Displays tweets onto page. Also filters
+ * tweets based on search bar, and displays
+ * them based on date/time (newest to oldest)
+ * @param None
+ * @returns None, updates page
+ */
 function display_tweets() {
-    console.log('enter display');
+    //console.log('enter display');
     // filter on search text
     let search = document.getElementById("searchBar").value.trim().toLowerCase();
     let filtered_tweets = null;
@@ -48,7 +51,7 @@ function display_tweets() {
     }
 
     const twitter_feed = document.getElementById("tweets-container");
-    // clear tweets containerw
+    // clear tweets container
     while(twitter_feed.firstChild) {
         twitter_feed.removeChild(twitter_feed.firstChild);
     }
@@ -100,21 +103,31 @@ function display_tweets() {
     })
 }
 
+/**
+ * Checks Pause Feed checkbox to see whether
+ * or not to continue fetching tweets
+ * @param None, updates var tweets
+ * @returns None, updates var tweets
+ */
 function auto_refresh() {
     let isChecked = document.getElementById("pause").checked; //gets status of checkbox  
     if(!isChecked){
         timer = setInterval(() => {
-            console.log('not checked');
+            //console.log('not checked');
             scrape_tweets();
             display_tweets();
         }, 5000);
     }
     else {
-        console.log('checked');
+        //console.log('checked');
         clearInterval(timer);
     }
 }
 
 auto_refresh();
+
+document.getElementById("searchBar").addEventListener('keyup', function(event) { //listens for any input when searching, filters tweets
+    display_tweets();
+});
 
 document.getElementById("pause").addEventListener('click', auto_refresh);
